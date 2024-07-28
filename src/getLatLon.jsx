@@ -1,19 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { getLatLon } from "./getLatLon";
 
-export function useWeatherData(city) {
-  const [weatherData, setWeatherData] = useState(null);
-
-  const latLonData = getLatLon(city);
-
-  // const lat = latLonData[0].lat;
-  // const lon = latLonData[0].lon;
+export function getLatLon(city) {
+  const [latLonData, setLatLonData] = useState(null);
 
   useEffect(() => {
     const apiKey = "777e4156e1ec809937f307e5ff01bb24";
 
-    // const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    const limit = 5;
+    const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${apiKey}`;
 
     fetch(apiUrl)
       .then((response) => {
@@ -23,11 +18,17 @@ export function useWeatherData(city) {
         return response.json();
       })
       .then((data) => {
-        setWeatherData(data);
+        setLatLonData(data);
       })
       .catch((error) => {
         console.error("Błąd: ", error);
       });
   }, [city]);
-  return weatherData;
+  return latLonData;
+}
+
+export function getLat(city) {
+  let latData = getLatLon(city);
+  latData = latData[0].lat;
+  return latData;
 }
