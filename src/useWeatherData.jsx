@@ -7,13 +7,18 @@ export function useWeatherData(city) {
 
   const latLonData = getLatLon(city);
 
-  // const lat = latLonData[0].lat;
-  // const lon = latLonData[0].lon;
+  let lat;
+  let lon;
+
+  if (latLonData) {
+    lat = latLonData[0].lat;
+    lon = latLonData[0].lon;
+  }
 
   useEffect(() => {
     const apiKey = "777e4156e1ec809937f307e5ff01bb24";
 
-    // const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    const apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
     fetch(apiUrl)
       .then((response) => {
