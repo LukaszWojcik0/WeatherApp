@@ -16,7 +16,7 @@ export function useWeatherData(city) {
   }
 
   useEffect(() => {
-    const apiKey = "777e4156e1ec809937f307e5ff01bb24";
+    const apiKey = import.meta.env.VITE_API_KEY;
 
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
