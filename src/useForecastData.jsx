@@ -17,7 +17,7 @@ export function useForecastData(city) {
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
 
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
     fetch(apiUrl)
       .then((response) => {
@@ -31,5 +31,7 @@ export function useForecastData(city) {
       })
       .catch((error) => console.log("Błąd", error));
   }, [city]);
+
+  console.log(forecastData);
   return forecastData;
 }
