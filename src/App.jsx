@@ -6,7 +6,7 @@ import { ForecastWeather } from "./ForecastWeather";
 function App() {
   return (
     <>
-      <CurrentWeather city={"London"} />
+      <CurrentWeather city={"Reykjavik"} />
       <ForecastWeather />
     </>
   );
