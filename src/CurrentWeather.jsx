@@ -1,9 +1,8 @@
 import React from "react";
 import { useWeatherData } from "./useWeatherData";
 
-export function CurrentWeather() {
-  const city = "Warszawa";
-  const weatherData = useWeatherData(city);
+export function CurrentWeather(props) {
+  const weatherData = useWeatherData(props.city);
 
   if (!weatherData) return <div>Ładowanie...</div>;
 
