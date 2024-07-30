@@ -6,10 +6,14 @@ export function CurrentWeather(props) {
 
   if (!weatherData) return <div>Ładowanie...</div>;
 
-  const temp = Math.round(weatherData.main.temp);
-  const name = weatherData.name;
-  const icon = weatherData.weather[0].icon;
-  let weather = weatherData.weather[0].main;
+  // const temp = Math.round(weatherData.main.temp);
+  // const name = weatherData.name;
+  // const icon = weatherData.weather[0].icon;
+  // let weather = weatherData.weather[0].main;
+
+  let temp, name, icon, weather;
+
+  // console.log(weatherData);
 
   return (
     <div>

@@ -5,7 +5,7 @@ export function getLatLon(city) {
   const [latLonData, setLatLonData] = useState(null);
 
   useEffect(() => {
-    const apiKey = "777e4156e1ec809937f307e5ff01bb24";
+    const apiKey = import.meta.env.VITE_API_KEY;
 
     const limit = 5;
     const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${apiKey}`;

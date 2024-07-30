@@ -23,14 +23,6 @@ export function ForecastWeather() {
     console.log(forecastData.list[6].dt);
 
     console.log((forecastData.list[8].dt % 86400) / 3600);
-    console.log(forecastData.list.length);
-
-    for (let i = 0; i < forecastData.list.length; i++) {
-      if ((forecastData.list[i].dt % 86400) / 3600 == 12) {
-        midDays.push(i);
-        console.log("test");
-      }
-    }
 
     return (
       <>
