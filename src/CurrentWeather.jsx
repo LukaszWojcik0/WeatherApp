@@ -2,16 +2,14 @@ import React from "react";
 import { useWeatherData } from "./useWeatherData";
 
 export function CurrentWeather(props) {
-  const weatherData = useWeatherData(props.city);
+  const response = useWeatherData(props.city);
 
-  if (!weatherData) return <div>Ładowanie...</div>;
+  if (!response) return <div>Ładowanie...</div>;
 
-  // const temp = Math.round(weatherData.main.temp);
-  // const name = weatherData.name;
-  // const icon = weatherData.weather[0].icon;
-  // let weather = weatherData.weather[0].main;
-
-  let temp, name, icon, weather;
+  const temp = Math.round(response.weatherData.main.temp);
+  const name = response.weatherData.name;
+  const icon = response.weatherData.weather[0].icon;
+  const weather = response.weatherData.weather[0].main;
 
   // console.log(weatherData);
 
