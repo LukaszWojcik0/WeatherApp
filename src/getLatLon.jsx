@@ -12,6 +12,6 @@ export function getLatLon(city) {
     apiKey;
 
   const latLonData = fetch(apiUrl).then((res) => res.json());
-
+  console.log("koks", latLonData);
   return latLonData;
 }

@@ -10,6 +10,6 @@ export function fetchWeather(lat, lon) {
     "&appid=" +
     apiKey +
     "&units=metric";
-
+  //   console.log(apiUrl);
   return fetch(apiUrl).then((res) => res.json());
 }

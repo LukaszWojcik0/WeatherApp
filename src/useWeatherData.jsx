@@ -23,12 +23,13 @@ export function useWeatherData(city) {
         throw new Error("Dane lokalizacji niedostępne");
       }
       const { lat, lon } = latLonData[0];
+      console.log("fetch", fetchWeather(lat, lon));
       return fetchWeather(lat, lon);
     },
     { enabled: !!latLonData && latLonData.length > 0 }
   );
 
-  // console.log("LatLonData: ", latLonData);
+  console.log("LatLonData: ", latLonData);
   // console.log(latLonData[0].name);
 
   return {
