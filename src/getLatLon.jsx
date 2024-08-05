@@ -1,5 +1,3 @@
-import React from "react";
-
 export function getLatLon(city) {
   const apiKey = import.meta.env.VITE_API_KEY;
   const limit = 1;
@@ -12,6 +10,5 @@ export function getLatLon(city) {
     apiKey;
 
   const latLonData = fetch(apiUrl).then((res) => res.json());
-  console.log("koks", latLonData);
   return latLonData;
 }

@@ -11,14 +11,10 @@ export function CurrentWeather(props) {
     return <div>error</div>;
   }
 
-  console.log({ isError, isPending, data });
-
   const icon = data.weather[0].icon;
   const weather = data.weather[0].main;
   const temp = Math.round(data.main.temp);
   const name = data.name;
-
-  // console.log(weatherData);
 
   return (
     <div>

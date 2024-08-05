@@ -1,37 +1,24 @@
-import React from "react";
-import { useState, useEffect } from "react";
 import { getLatLon } from "./getLatLon";
+import { fetchForecast } from "./fetchForecast";
+import { useQuery } from "@tanstack/react-query";
 
 export function useForecastData(city) {
-  const [forecastData, setForecastData] = useState(null);
+  const { isPending, isError, data } = useQuery({
+    queryKey: ["ForecastData", city],
+    queryFn: async () => {
+      const latLonData = await getLatLon(city);
 
-  const latLonData = getLatLon(city);
+      if (!latLonData || latLonData.length === 0) {
+        throw new Error("Dane lokalizacji niedostępne");
+      }
+      const { lat, lon } = latLonData[0];
+      return fetchForecast(lat, lon);
+    },
+  });
 
-  let lat, lon;
-
-  if (latLonData) {
-    lat = latLonData[0].lat;
-    lon = latLonData[0].lon;
-  }
-
-  useEffect(() => {
-    const apiKey = import.meta.env.VITE_API_KEY;
-
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Nie udało sie pobrać danych");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setForecastData(data);
-      })
-      .catch((error) => console.log("Błąd", error));
-  }, [city]);
-
-  console.log(forecastData);
-  return forecastData;
+  return {
+    isPending,
+    isError,
+    data,
+  };
 }
