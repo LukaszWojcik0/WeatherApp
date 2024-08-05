@@ -7,15 +7,15 @@ export function ForecastBox(props) {
   const hour = date.getHours();
 
   return (
-    <div>
+    <div className="px-3">
       <img
         src={"src/assets/weather-icons/" + icon + ".png"}
         alt="forcast-weather-"
         width={40}
+        className="mb-3"
       />
       <p>{temp}&deg;C</p>
       <p>{hour}:00</p>
-      <br></br>
     </div>
   );
 }

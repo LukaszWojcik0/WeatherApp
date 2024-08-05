@@ -17,19 +17,23 @@ export function CurrentWeather(props) {
   const name = data.name;
 
   return (
-    <div>
+    <div className="flex place-content-evenly h-full items-center mt-10 mb-10">
       <img
         src={"src/assets/weather-icons/" + icon + ".png"}
         alt={"current-weather-img-" + weather}
-        width={60}
+        width={160}
       />
-      <p>{temp}&deg;C</p>
-      <img
-        src="src/assets/location-pin-img.svg"
-        alt="location-pin-img"
-        width={20}
-      />
-      <p>{name}</p>
+      <div className="flex-col ml-5">
+        <p className="text-3xl">{temp}&deg;C</p>
+        <div className="flex flex-row ">
+          <img
+            src="src/assets/location-pin-img.svg"
+            alt="location-pin-img"
+            width={20}
+          />
+          <p>{name}</p>
+        </div>
+      </div>
     </div>
   );
 }

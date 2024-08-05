@@ -12,11 +12,11 @@ export function ForecastWeather(props) {
   }
 
   return (
-    <>
+    <div className="flex place-content-evenly h-full">
       <ForecastBox data={data.list[0]} />
       <ForecastBox data={data.list[1]} />
       <ForecastBox data={data.list[2]} />
       <ForecastBox data={data.list[3]} />
-    </>
+    </div>
   );
 }
