@@ -8,7 +8,7 @@ const city = "Gdańsk";
 
 function App() {
   return (
-    <div className="w-2/5 m-auto">
+    <div className="w-3/5 m-auto">
       <QueryClientProvider client={queryClient}>
         <input type="text" />
         <input type="button" value="Check" />

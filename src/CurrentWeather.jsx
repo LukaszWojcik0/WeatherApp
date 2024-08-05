@@ -21,7 +21,7 @@ export function CurrentWeather(props) {
       <img
         src={"src/assets/weather-icons/" + icon + ".png"}
         alt={"current-weather-img-" + weather}
-        width={160}
+        className="w-20"
       />
       <div className="flex-col ml-5">
         <p className="text-3xl">{temp}&deg;C</p>
