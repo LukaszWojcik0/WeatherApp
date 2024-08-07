@@ -4,11 +4,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // import "./App.css";
 const queryClient = new QueryClient();
 
-const city = "Gdańsk";
+const city = "Bibione";
 
 function App() {
   return (
-    <div className="w-3/5 m-auto">
+    <div className="w-4/5 m-auto my-12 p-5 bg-slate-200/20 backdrop-blur-xl rounded-xl">
       <QueryClientProvider client={queryClient}>
         <input type="text" />
         <input type="button" value="Check" />
