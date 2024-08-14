@@ -23,18 +23,25 @@ function App() {
   };
 
   return (
-    <div className="max-w-md w-4/5 m-auto my-12 p-5 bg-slate-200/20 backdrop-blur-xl rounded-xl ">
+    <div className="max-w-md w-4/5 m-auto my-12 p-5 bg-slate-200/80 backdrop-blur-xl rounded-xl ">
       <QueryClientProvider client={queryClient}>
-        <input
-          type="text"
-          name="cityInput"
-          placeholder="City name"
-          value={inputValue}
-          onChange={handleInputChange}
-        />
-        <button type="submit" onClick={handleSubmit}>
-          Check Weather
-        </button>
+        <div className="w-max m-auto flex place-content-evenly">
+          <input
+            type="text"
+            name="cityInput"
+            placeholder="City name"
+            value={inputValue}
+            onChange={handleInputChange}
+            className="p-1"
+          />
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="mx-2 p-1 bg-main-bg text-secondary-bg rounded-lg hover:bg-secondary-bg hover:text-main-bg"
+          >
+            Check Weather
+          </button>
+        </div>
         <WeatherBox city={cityVariable} />
       </QueryClientProvider>
     </div>
