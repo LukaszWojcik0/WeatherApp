@@ -37,7 +37,7 @@ function App() {
           <button
             type="submit"
             onClick={handleSubmit}
-            className="mx-2 p-1 px-2 bg-main-bg text-secondary-bg rounded-lg hover:bg-secondary-bg hover:text-main-bg"
+            className="mx-2 p-1 px-3 bg-main-bg text-secondary-bg rounded-lg hover:bg-secondary-bg hover:text-main-bg"
           >
             Check Weather
           </button>
