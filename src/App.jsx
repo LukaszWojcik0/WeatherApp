@@ -32,12 +32,12 @@ function App() {
             placeholder="City name"
             value={inputValue}
             onChange={handleInputChange}
-            className="p-1"
+            className="p-1  bg-slate-200/0 border-b-2 focus:bg-slate-200/30 border-main-bg focus:outline-none"
           />
           <button
             type="submit"
             onClick={handleSubmit}
-            className="mx-2 p-1 bg-main-bg text-secondary-bg rounded-lg hover:bg-secondary-bg hover:text-main-bg"
+            className="mx-2 p-1 px-2 bg-main-bg text-secondary-bg rounded-lg hover:bg-secondary-bg hover:text-main-bg"
           >
             Check Weather
           </button>
